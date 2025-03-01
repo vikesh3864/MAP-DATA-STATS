@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -24,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*c%^fui=&33zld0la1!lzub@_0_#_x6ux2-v8q+5-oapbm(93j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Change to False in production
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'map-data-stats-1.onrender.com'
+    'map-data-stats-1.onrender.com'  # Add your Render domain here
 ]
-
 
 
 # Application definition
@@ -122,11 +121,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'  # Correct URL for static files
+
+# Directories where static files from your app are located
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'MapData_app/static')]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-DEBUG = True
+# Folder where static files will be collected into during 'collectstatic'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
